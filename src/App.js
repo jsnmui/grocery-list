@@ -1,11 +1,11 @@
 import './App.css';
-import productsData from './data/productsData'
 import items from './data/items'
 import { Component } from 'react';
 import Navbar from "./components/Navbar";
 import ProductsList from './components/ProducstsList';
 import Form from './components/Form';
 import ShoppingCart from "./components/ShoppingCart"
+
 class App extends Component {
   state = {    //rerenders entire application
      shoppingCartItems:[],      
@@ -13,7 +13,7 @@ class App extends Component {
      item: '',
      brand: '',
      units: '',
-     quantity: 0,
+     quantity: 1,
 
    }
   
@@ -28,8 +28,9 @@ class App extends Component {
     event.preventDefault()
 
     const newProduct = {
-      item: this.state.productName,
+      item: this.state.item,
       brand: this.state.brand,
+      units: this.state.units,
       quantity: this.state.quantity,
       isPurchased:false
     };
@@ -56,19 +57,18 @@ class App extends Component {
     <Navbar text='Groceries List' />
     
     <ShoppingCart  shoppingCartItems={this.state.shoppingCartItems}/>
-    {/* <Form 
+    <Form 
        handleSubmit={this.handleSubmit}
        handleChange={this.handleChange}
-       productName={this.state.productName}
-       productPrice={this.state.productPrice}
-       productDescription={this.state.productDescription}
-      /> */}
+       item={this.state.item}
+       brand={this.state.brand}
+       units={this.state.units}
+       quantity={this.state.quantity}
+      /> 
     <ProductsList products={this.state.items} addToCart={this.addToCart}/>
     </div>
   );
   }
 }
-
-
 
 export default App;

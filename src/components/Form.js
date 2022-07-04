@@ -1,29 +1,35 @@
 const Form = (props) => {
     return (
       <form onSubmit={props.handleSubmit}>
-        <label htmlFor="productName">Product Name</label>
+        <label htmlFor="item">Product Name</label>
         <input
           type="text"
-          value={props.productName}
+          value={props.item}
           onChange={props.handleChange}
-          id="productName"
+          id="item"
         />
-        <br />
-        <label htmlFor="productPrice">Product Price</label>
-        <input
-          type="number"
-          value={props.productPrice}
-          onChange={props.handleChange}
-          id="productPrice"
-        />
-  
-        <label htmlFor="productDescription">Product Description</label>
+        <label htmlFor="brand">Brand</label>
         <input
           type="text"
-          value={props.productDescription}
+          value={props.brand}
           onChange={props.handleChange}
-          id="productDescription"
+          id="brand"
         />
+       <label htmlFor="units">Units</label>
+        <input
+          type="text"
+          value={props.units}
+          onChange={props.handleChange}
+          id="units"
+        />
+         <label htmlFor="quantity">Quantity</label>
+        <input
+          type="text"
+          value={props.quantity}
+          onChange={props.handleChange}
+          id="quantity"
+        />
+
   
         <input type="submit" />
       </form>
