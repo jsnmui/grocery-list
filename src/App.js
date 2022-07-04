@@ -4,16 +4,17 @@ import { Component } from 'react';
 import Navbar from "./components/Navbar";
 import ProductsList from './components/ProducstsList';
 import Form from './components/Form';
-import ShoppingCart from "./components/ShoppingCart"
+//import ShoppingCart from "./components/ShoppingCart"
 
 class App extends Component {
   state = {    //rerenders entire application
-     shoppingCartItems:[],      
-     items: items,
-     item: '',
-     brand: '',
-     units: '',
-     quantity: 1,
+      shoppingCartItems:[],      
+      items: items,
+      item: '',
+      brand: '',
+      units: '',
+      quantity: 1,
+      
 
    }
   
@@ -28,11 +29,11 @@ class App extends Component {
     event.preventDefault()
 
     const newProduct = {
-      item: this.state.item,
-      brand: this.state.brand,
-      units: this.state.units,
-      quantity: this.state.quantity,
-      isPurchased:false
+        item: this.state.item,
+        brand: this.state.brand,
+        units: this.state.units,
+        quantity: this.state.quantity,
+        isPurchased:false
     };
    
      // set the new values in the state
@@ -40,15 +41,16 @@ class App extends Component {
       items: [newProduct, ...this.state.items],
       item: '',
       brand: '',
-      quantity: 0,
+      quantity: 1,
       isPurchased: false
     })
   }
 
   addToCart=(product)=>{
-    console.log(product)
     this.setState({shoppingCartItems: [product, ...this.state.shoppingCartItems]})
   }
+
+ 
 
   render() {
   console.log(items)
@@ -56,7 +58,7 @@ class App extends Component {
     <div className="App">
     <Navbar text='Groceries List' />
     
-    <ShoppingCart  shoppingCartItems={this.state.shoppingCartItems}/>
+    {/* <ShoppingCart  shoppingCartItems={this.state.shoppingCartItems}/> */}
     <Form 
        handleSubmit={this.handleSubmit}
        handleChange={this.handleChange}
@@ -65,7 +67,7 @@ class App extends Component {
        units={this.state.units}
        quantity={this.state.quantity}
       /> 
-    <ProductsList products={this.state.items} addToCart={this.addToCart}/>
+    <ProductsList products={this.state.items} addToCart={this.addToCart} />
     </div>
   );
   }
