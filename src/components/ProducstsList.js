@@ -8,7 +8,7 @@ const ProductsList = (props) => {
        
 
     {props.products.map(
-        (item, idx) => !item.isPurchased && <ProductItem product={item} key={idx} addToCart={props.addToCart}  />
+        (item, idx) => !item.isPurchased && <ProductItem product={item} key={idx}  removeItem={props.removeItem} />
       )}
       </div>
     );
